@@ -39,3 +39,16 @@ resource "aws_eks_addon" "kubeproxy" {
   ]
 
 }
+
+resource "aws_eks_addon" "pod_identity" {
+  cluster_name = aws_eks_cluster.main.name
+  addon_name   = "eks-pod-identity-agent"
+
+  addon_version               = var.addon_pod_identity_version
+  resolve_conflicts_on_create = "OVERWRITE"
+  resolve_conflicts_on_update = "OVERWRITE"
+
+  depends_on = [
+    aws_eks_access_entry.nodes
+  ]
+}
