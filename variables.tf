@@ -84,3 +84,13 @@ variable "addon_pod_identity_version" {
   default     = "v1.3.10-eksbuild.3"
   description = "Versão do Addon do Pod Identity"
 }
+
+variable "dns_name" {
+  type        = string
+  default = "teste-infra-iac.br"
+}
+
+variable "route53_hosted_zone" {
+  type    = string
+  default = "Z102505525LUE9SZ7HWTY"
+}
